@@ -1,0 +1,6 @@
+framework module Pods_GIPHYApp_GIPHYAppUITests {
+  umbrella header "Pods-GIPHYApp-GIPHYAppUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
