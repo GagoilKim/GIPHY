@@ -19,7 +19,11 @@ extension String {
             guard let url = URL(string: self) else { return UIImage() }
             let data: Data = try Data(contentsOf: url)
             return UIImage(data: data) ?? UIImage()
-        } catch {}
+        } catch {
+            #if DEBUG
+            print(error.localizedDescription)
+            #endif
+        }
         return UIImage()
     }
 }

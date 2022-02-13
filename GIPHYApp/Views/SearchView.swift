@@ -23,33 +23,7 @@ struct SearchView: View {
                 }
             }
             .padding()
-            ScrollView {
-//                HStack{
-                
-                ForEach(viewModel.imageObjectList) { value in
-                        VStack{
-                            RoundedRectangle(cornerRadius: 20)
-                                .foregroundColor(Color.blue)
-                                .frame(width: UIScreen.main.bounds.width / 2 - 10, height: 100)
-                        }
-                        VStack{
-                            RoundedRectangle(cornerRadius: 20)
-                                .frame(width: UIScreen.main.bounds.width / 2 - 10, height: 100)
-
-                        }
-//                    }
-                  
-                }
-//                ImageCollectionController(imageObjectList: $viewModel.imageObjectList)
-//                ForEach(viewModel.imageObjectList) { value in
-////                        Spacer(minLength: 0)
-//                    Image(uiImage: value.imagesList.originalStill.url.loadImage())
-//                            .resizable()
-//                            .scaledToFit()
-//                            .frame(width: 100, height: 100)
-//                    }
-            }
-            
+            ImageCollection(imageObjectList: $viewModel.imageObjectList)
             Spacer()
         }
     }

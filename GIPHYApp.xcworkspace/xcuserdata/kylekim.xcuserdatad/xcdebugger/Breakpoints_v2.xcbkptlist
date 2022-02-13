@@ -14,8 +14,8 @@
             filePath = "GIPHYApp/Views/SearchView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "searchImages(keyword:)"
             landmarkType = "7">
          </BreakpointContent>
