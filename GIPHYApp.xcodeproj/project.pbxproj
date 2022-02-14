@@ -8,13 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		416D915524ACB8A66CACB1F8 /* Pods_GIPHYApp_GIPHYAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AD42E85DD365535DB498625 /* Pods_GIPHYApp_GIPHYAppUITests.framework */; };
-		9436458827B8CEB700A1E599 /* GiphyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9436458727B8CEB700A1E599 /* GiphyResponse.swift */; };
+		9436458827B8CEB700A1E599 /* ImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9436458727B8CEB700A1E599 /* ImageResponse.swift */; };
 		9436458B27B8D1D900A1E599 /* KeyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9436458A27B8D1D900A1E599 /* KeyConstants.swift */; };
 		9436458D27B8D29B00A1E599 /* URLConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9436458C27B8D29B00A1E599 /* URLConstants.swift */; };
 		9436459027B8D47000A1E599 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9436458F27B8D47000A1E599 /* String+Extension.swift */; };
 		9436459227B8F98400A1E599 /* AppErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9436459127B8F98400A1E599 /* AppErrors.swift */; };
 		9436459527B9177100A1E599 /* GifImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9436459427B9177100A1E599 /* GifImage.swift */; };
 		9436459E27B94B0B00A1E599 /* ImageCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9436459D27B94B0B00A1E599 /* ImageCollection.swift */; };
+		943645A027BA793D00A1E599 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9436459F27BA793D00A1E599 /* SearchResultView.swift */; };
+		943645A227BA7B4400A1E599 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943645A127BA7B4400A1E599 /* SearchBar.swift */; };
+		943645A427BA85B600A1E599 /* TrendSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943645A327BA85B600A1E599 /* TrendSearchResponse.swift */; };
+		943645A827BA8A5100A1E599 /* TrendSearchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943645A727BA8A5100A1E599 /* TrendSearchRow.swift */; };
 		94697FAA27B8C2F900C7E51D /* GIPHYAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94697FA927B8C2F900C7E51D /* GIPHYAppApp.swift */; };
 		94697FAC27B8C2F900C7E51D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94697FAB27B8C2F900C7E51D /* ContentView.swift */; };
 		94697FAE27B8C2FA00C7E51D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94697FAD27B8C2FA00C7E51D /* Assets.xcassets */; };
@@ -57,7 +61,7 @@
 		4AD42E85DD365535DB498625 /* Pods_GIPHYApp_GIPHYAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GIPHYApp_GIPHYAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DD9BF1A029DE72C40F84027 /* Pods-GIPHYAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GIPHYAppTests.debug.xcconfig"; path = "Target Support Files/Pods-GIPHYAppTests/Pods-GIPHYAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8F9E56F913F1ECF39AB19DE5 /* Pods-GIPHYApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GIPHYApp.release.xcconfig"; path = "Target Support Files/Pods-GIPHYApp/Pods-GIPHYApp.release.xcconfig"; sourceTree = "<group>"; };
-		9436458727B8CEB700A1E599 /* GiphyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyResponse.swift; sourceTree = "<group>"; };
+		9436458727B8CEB700A1E599 /* ImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResponse.swift; sourceTree = "<group>"; };
 		9436458A27B8D1D900A1E599 /* KeyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyConstants.swift; sourceTree = "<group>"; };
 		9436458C27B8D29B00A1E599 /* URLConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstants.swift; sourceTree = "<group>"; };
 		9436458F27B8D47000A1E599 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -65,6 +69,10 @@
 		9436459427B9177100A1E599 /* GifImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImage.swift; sourceTree = "<group>"; };
 		9436459627B91A6C00A1E599 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9436459D27B94B0B00A1E599 /* ImageCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollection.swift; sourceTree = "<group>"; };
+		9436459F27BA793D00A1E599 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
+		943645A127BA7B4400A1E599 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		943645A327BA85B600A1E599 /* TrendSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendSearchResponse.swift; sourceTree = "<group>"; };
+		943645A727BA8A5100A1E599 /* TrendSearchRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendSearchRow.swift; sourceTree = "<group>"; };
 		94697FA627B8C2F900C7E51D /* GIPHYApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GIPHYApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94697FA927B8C2F900C7E51D /* GIPHYAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIPHYAppApp.swift; sourceTree = "<group>"; };
 		94697FAB27B8C2F900C7E51D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -151,7 +159,8 @@
 		9436458627B8CE9B00A1E599 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				9436458727B8CEB700A1E599 /* GiphyResponse.swift */,
+				9436458727B8CEB700A1E599 /* ImageResponse.swift */,
+				943645A327BA85B600A1E599 /* TrendSearchResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -181,6 +190,8 @@
 			children = (
 				9436459427B9177100A1E599 /* GifImage.swift */,
 				9436459D27B94B0B00A1E599 /* ImageCollection.swift */,
+				943645A127BA7B4400A1E599 /* SearchBar.swift */,
+				943645A727BA8A5100A1E599 /* TrendSearchRow.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -258,6 +269,7 @@
 				94697FD827B8C3E100C7E51D /* HomeView.swift */,
 				94697FDA27B8C3ED00C7E51D /* MyPageView.swift */,
 				94B0755B27B9D9B500F33BBE /* FullImageView.swift */,
+				9436459F27BA793D00A1E599 /* SearchResultView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -507,6 +519,8 @@
 				94B0755C27B9D9B500F33BBE /* FullImageView.swift in Sources */,
 				9436459027B8D47000A1E599 /* String+Extension.swift in Sources */,
 				9436458D27B8D29B00A1E599 /* URLConstants.swift in Sources */,
+				943645A027BA793D00A1E599 /* SearchResultView.swift in Sources */,
+				943645A427BA85B600A1E599 /* TrendSearchResponse.swift in Sources */,
 				94697FDD27B8C98A00C7E51D /* GiphyApiService.swift in Sources */,
 				9436458B27B8D1D900A1E599 /* KeyConstants.swift in Sources */,
 				94697FAC27B8C2F900C7E51D /* ContentView.swift in Sources */,
@@ -514,8 +528,10 @@
 				94B0756027BA366500F33BBE /* UserDefaultsConstants.swift in Sources */,
 				9436459527B9177100A1E599 /* GifImage.swift in Sources */,
 				94697FD927B8C3E100C7E51D /* HomeView.swift in Sources */,
+				943645A227BA7B4400A1E599 /* SearchBar.swift in Sources */,
 				94697FAA27B8C2F900C7E51D /* GIPHYAppApp.swift in Sources */,
-				9436458827B8CEB700A1E599 /* GiphyResponse.swift in Sources */,
+				9436458827B8CEB700A1E599 /* ImageResponse.swift in Sources */,
+				943645A827BA8A5100A1E599 /* TrendSearchRow.swift in Sources */,
 				94697FDB27B8C3ED00C7E51D /* MyPageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

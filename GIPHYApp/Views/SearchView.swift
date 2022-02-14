@@ -11,28 +11,34 @@ struct SearchView: View {
     @State private var isFullScreen : Bool = false
     @State var keyword : String = ""
     @StateObject private var viewModel = ViewModel()
+    @State var searchType : SearchType = .GIFs
     
     var body: some View {
         NavigationView{
-            VStack{
-                HStack{
-                    TextField("Search GIPHY", text: $keyword)
-                    Spacer()
-                    Button(action: {
-                        viewModel.searchImages(keyword: "Hello")
-                    }){
-                        Image(systemName: "magnifyingglass")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 25, height: 25)
-                            .foregroundColor(Color.black)
-                    }
-                }
-                .padding(.horizontal)
-                HStack{
-                    
-                }
+            VStack(alignment: .leading){
+                SearchBar( searchType: $searchType)
                 ScrollView{
+                    HStack{
+                        if !viewModel.trendSearchList.isEmpty {
+                            VStack(alignment: .leading){
+                                Text("Trending Searches")
+                                    .bold()
+                                ForEach(0..<(viewModel.trendSearchList.count/3), id: \.self) { value in
+                                    TrendSearchRow(trendKeyword: viewModel.trendSearchList[value],
+                                                   searchType: $searchType)
+                                }
+                            }
+                            Spacer()
+                        }
+                    }
+                    .padding(.leading, 20)
+                    HStack{
+                        Text("Most Popular Now")
+                            .bold()
+                        Spacer()
+                    }
+                    .padding(.leading, 20)
+                    
                     ImageCollection(imageAddressList: $viewModel.imageAddressList,
                                     imageSelectStatus: $viewModel.imageSelectStatus,
                                     selectedIndex: $viewModel.selectedIndex)
@@ -55,12 +61,15 @@ struct SearchView: View {
                     }
                 }
             }
-            .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
+            .navigationTitle(Text("Search"))
+            .navigationBarTitleDisplayMode(.inline)
             .onAppear(perform: {
                 resetStatus()
+                viewModel.getTrendingImages()
+                viewModel.getTrendingSearch()
             })
         }
-        .padding(.top, 10)
     }
     
     private func resetStatus() {
@@ -85,18 +94,34 @@ extension SearchView {
         @Published var imageAddressList : [String] = []
         @Published var imageSelectStatus : ImageSelectStatus = .notSelected
         @Published var selectedIndex : Int = 0
+        @Published var trendSearchList : [String] = []
         
         let giphyApiService : GiphyApiServiceProtocol
         init(service: GiphyApiServiceProtocol = GiphyApiService()){
             giphyApiService = service
         }
         
-        func searchImages(keyword: String) {
-            giphyApiService.searchImages(keyword: keyword){ [weak self] result in
+        func getTrendingImages() {
+            giphyApiService.getTrendingImages { [weak self] result in
                 guard let self = self else { return }
                 switch result {
                 case let .success(data):
                     self.imageAddressList = data.map{ $0.imagesList.downSized.url }
+                case let .failure(error):
+#if DEBUG
+                    print(error.localizedDescription)
+#endif
+                }
+            }
+        }
+        
+        func getTrendingSearch() {
+            giphyApiService.getTrendingSearch { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case let .success(data):
+                    self.trendSearchList = data
+                    print(self.trendSearchList)
                 case let .failure(error):
 #if DEBUG
                     print(error.localizedDescription)

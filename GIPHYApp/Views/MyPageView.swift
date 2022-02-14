@@ -15,17 +15,22 @@ struct MyPageView: View {
             VStack{
                 Text("MyPage")
                 ScrollView{
-                ImageCollection(imageAddressList: $viewModel.imageAddressList,
-                                imageSelectStatus: $viewModel.imageSelectStatus,
-                                selectedIndex: $viewModel.selectedIndex)
-                    .onChange(of: viewModel.imageSelectStatus){ val in
-                        switch viewModel.imageSelectStatus {
-                        case .notSelected:
-                            isFullScreen = false
-                        case .selected:
-                            isFullScreen = true
-                        }
+                    HStack{
+                        Text("Favorite")
+                        Spacer()
                     }
+                    .padding(.leading, 20)
+                    ImageCollection(imageAddressList: $viewModel.imageAddressList,
+                                    imageSelectStatus: $viewModel.imageSelectStatus,
+                                    selectedIndex: $viewModel.selectedIndex)
+                        .onChange(of: viewModel.imageSelectStatus){ val in
+                            switch viewModel.imageSelectStatus {
+                            case .notSelected:
+                                isFullScreen = false
+                            case .selected:
+                                isFullScreen = true
+                            }
+                        }
                 }
                 if !viewModel.imageAddressList.isEmpty {
                     NavigationLink( destination:
@@ -41,7 +46,7 @@ struct MyPageView: View {
                 viewModel.getFavoriteData()
                 resetStatus()
             })
-          
+            
         }
     }
     private func resetStatus() {

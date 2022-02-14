@@ -1,5 +1,5 @@
 //
-//  GiphyResponse.swift
+//  ImageResponse.swift
 //  GIPHYApp
 //
 //  Created by Kyle Kim on 2022/02/13.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GiphyResponse : Decodable {
+struct ImageResponse : Decodable {
     var data: [DataObject]
     
     private enum CodingKeys: String, CodingKey {
@@ -27,14 +27,12 @@ struct DataObject : Decodable, Identifiable {
 
 struct ImageObject : Decodable {
     var original : ImageData
-    var preview : ImageData
-    var originalStill : ImageData
+//    var originalStill : ImageData
     var downSized : ImageData
     
     private enum CodingKeys: String, CodingKey {
         case original
-        case preview = "preview_gif"
-        case originalStill = "original_still"
+//        case originalStill = "original_still"
         case downSized  = "downsized"
     }
 }
