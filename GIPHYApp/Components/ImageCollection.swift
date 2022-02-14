@@ -13,7 +13,7 @@ struct ImageCollection: View {
     @Binding var selectedIndex : Int
     
     var body: some View {
-        ScrollView { 
+//        ScrollView {
             HStack(alignment: .top){
                 VStack{
                     ForEach(imageAddressList.indices, id: \.self) { index in
@@ -44,7 +44,7 @@ struct ImageCollection: View {
                     }
                 }
             }
-        }
+//        }
     }
 }
 

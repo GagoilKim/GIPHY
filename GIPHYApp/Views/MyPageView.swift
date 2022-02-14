@@ -14,6 +14,7 @@ struct MyPageView: View {
         NavigationView{
             VStack{
                 Text("MyPage")
+                ScrollView{
                 ImageCollection(imageAddressList: $viewModel.imageAddressList,
                                 imageSelectStatus: $viewModel.imageSelectStatus,
                                 selectedIndex: $viewModel.selectedIndex)
@@ -25,6 +26,7 @@ struct MyPageView: View {
                             isFullScreen = true
                         }
                     }
+                }
                 if !viewModel.imageAddressList.isEmpty {
                     NavigationLink( destination:
                                         FullImageView(imageAddress:

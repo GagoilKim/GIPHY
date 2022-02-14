@@ -9,14 +9,14 @@ import SwiftUI
 
 struct SearchView: View {
     @State private var isFullScreen : Bool = false
-    @State var text : String = ""
+    @State var keyword : String = ""
     @StateObject private var viewModel = ViewModel()
     
     var body: some View {
         NavigationView{
             VStack{
                 HStack{
-                    TextField("Type Something", text: $text)
+                    TextField("Search GIPHY", text: $keyword)
                     Spacer()
                     Button(action: {
                         viewModel.searchImages(keyword: "Hello")
@@ -24,23 +24,28 @@ struct SearchView: View {
                         Image(systemName: "magnifyingglass")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 30, height: 30)
+                            .frame(width: 25, height: 25)
                             .foregroundColor(Color.black)
                     }
                 }
-                .padding()
-                ImageCollection(imageAddressList: $viewModel.imageAddressList,
-                                imageSelectStatus: $viewModel.imageSelectStatus,
-                                selectedIndex: $viewModel.selectedIndex)
-                    .onChange(of: viewModel.imageSelectStatus){ val in
-                        switch viewModel.imageSelectStatus {
-                        case .notSelected:
-                            isFullScreen = false
-                        case .selected:
-                            isFullScreen = true
+                .padding(.horizontal)
+                HStack{
+                    
+                }
+                ScrollView{
+                    ImageCollection(imageAddressList: $viewModel.imageAddressList,
+                                    imageSelectStatus: $viewModel.imageSelectStatus,
+                                    selectedIndex: $viewModel.selectedIndex)
+                        .onChange(of: viewModel.imageSelectStatus){ val in
+                            switch viewModel.imageSelectStatus {
+                            case .notSelected:
+                                isFullScreen = false
+                            case .selected:
+                                isFullScreen = true
+                            }
                         }
-                    }
-                Spacer()
+                    Spacer()
+                }
                 if !viewModel.imageAddressList.isEmpty {
                     NavigationLink( destination:
                                         FullImageView(imageAddress:
@@ -55,6 +60,7 @@ struct SearchView: View {
                 resetStatus()
             })
         }
+        .padding(.top, 10)
     }
     
     private func resetStatus() {
@@ -92,9 +98,9 @@ extension SearchView {
                 case let .success(data):
                     self.imageAddressList = data.map{ $0.imagesList.downSized.url }
                 case let .failure(error):
-                    #if DEBUG
+#if DEBUG
                     print(error.localizedDescription)
-                    #endif
+#endif
                 }
             }
         }

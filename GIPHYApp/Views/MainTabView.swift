@@ -12,17 +12,21 @@ struct MainTabView: View {
         TabView {
             HomeView()
                 .tabItem{
-                    Text("HOME")
+                    Image(systemName: "house")
+                        .foregroundColor(Color.gray)
                 }
             SearchView()
                 .tabItem{
-                    Text("Search")
+                    Image(systemName: "magnifyingglass")
+                        .foregroundColor(Color.gray)
                 }
             MyPageView()
                 .tabItem{
-                    Text("MyPage")
+                    Image(systemName: "person")
+                        .foregroundColor(Color.gray)
                 }
         }
+        .accentColor(Color.black)
     }
 }
 
