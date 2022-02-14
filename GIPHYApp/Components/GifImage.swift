@@ -18,8 +18,10 @@ struct GifImage: UIViewRepresentable {
         if let url = URL(string: urlAddress) {
             webView.load(URLRequest(url: url))
         }
-        return WKWebView()
+        webView.contentMode = .scaleAspectFit
+        return webView
     }
+    
     func updateUIView(_ uiView: WKWebView, context: Context) {
     }
 }

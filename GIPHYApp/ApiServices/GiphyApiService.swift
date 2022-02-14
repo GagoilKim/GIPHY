@@ -14,6 +14,7 @@ protocol GiphyApiServiceProtocol {
 
 class GiphyApiService : GiphyApiServiceProtocol {
     let decoder  = JSONDecoder()
+    
     func searchImages(keyword: String, completion: @escaping (Result<[DataObject], Error>) -> Void){
         let path = "?api_key=\(KeyConstants.Giphy.APIKey)&q=\(keyword)$limit=3"
         AF.request(URLConstant.SearchImageURL + path.encodeUrl(), method: .get, encoding: JSONEncoding.default).response { res in

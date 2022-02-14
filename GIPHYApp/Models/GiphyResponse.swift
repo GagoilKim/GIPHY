@@ -29,11 +29,13 @@ struct ImageObject : Decodable {
     var original : ImageData
     var preview : ImageData
     var originalStill : ImageData
+    var downSized : ImageData
     
     private enum CodingKeys: String, CodingKey {
         case original
         case preview = "preview_gif"
         case originalStill = "original_still"
+        case downSized  = "downsized"
     }
 }
 

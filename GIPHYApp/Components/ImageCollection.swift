@@ -8,37 +8,48 @@
 import SwiftUI
 
 struct ImageCollection: View {
-    @Binding var imageObjectList : [DataObject]
-
+    @Binding var imageAddressList : [String]
+    @Binding var imageSelectStatus : ImageSelectStatus
+    @Binding var selectedIndex : Int
+    
     var body: some View {
-        ScrollView {
+        ScrollView { 
             HStack(alignment: .top){
                 VStack{
-                    ForEach(imageObjectList.indices, id: \.self) { index in
+                    ForEach(imageAddressList.indices, id: \.self) { index in
                         if index % 2 == 0 {
-                            Image(uiImage: imageObjectList[index].imagesList.originalStill.url.loadImage())
-                                .resizable()
+                            GifImage(urlAddress: imageAddressList[index])
                                 .scaledToFit()
                                 .frame(width: UIScreen.main.bounds.width / 2)
+                                .onTapGesture{
+                                    imageSelectStatus = .selected
+                                    selectedIndex = index
+                                }
                         }
                     }
                 }
+                Spacer()
                 VStack{
-                    ForEach(imageObjectList.indices, id: \.self) { index in
+                    ForEach(imageAddressList.indices, id: \.self) { index in
                         if index % 2 == 1 {
-                            Image(uiImage: imageObjectList[index].imagesList.originalStill.url.loadImage())
-                                .resizable()
+                            GifImage(urlAddress: imageAddressList[index])
                                 .scaledToFit()
                                 .frame(width: UIScreen.main.bounds.width / 2)
+
+                                .onTapGesture{
+                                    imageSelectStatus = .selected
+                                    selectedIndex = index
+                                }
                         }
                     }
                 }
             }
-        }    }
+        }
+    }
 }
 
 struct ImageCollection_Previews: PreviewProvider {
     static var previews: some View {
-        ImageCollection(imageObjectList: .constant([]))
+        ImageCollection(imageAddressList: .constant([]), imageSelectStatus: .constant(.notSelected), selectedIndex: .constant(1))
     }
 }
