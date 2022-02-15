@@ -22,6 +22,7 @@
 		943645AC27BBBAE100A1E599 /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943645AB27BBBAE100A1E599 /* URLImage.swift */; };
 		943645AE27BBCDD500A1E599 /* RecentSearchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943645AD27BBCDD500A1E599 /* RecentSearchRow.swift */; };
 		943645B027BBCFE500A1E599 /* StatusConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943645AF27BBCFE500A1E599 /* StatusConstants.swift */; };
+		943645B227BBF1F800A1E599 /* GiphyApiServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943645B127BBF1F800A1E599 /* GiphyApiServiceTest.swift */; };
 		94697FAA27B8C2F900C7E51D /* GIPHYAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94697FA927B8C2F900C7E51D /* GIPHYAppApp.swift */; };
 		94697FAC27B8C2F900C7E51D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94697FAB27B8C2F900C7E51D /* ContentView.swift */; };
 		94697FAE27B8C2FA00C7E51D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94697FAD27B8C2FA00C7E51D /* Assets.xcassets */; };
@@ -78,6 +79,7 @@
 		943645AB27BBBAE100A1E599 /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
 		943645AD27BBCDD500A1E599 /* RecentSearchRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchRow.swift; sourceTree = "<group>"; };
 		943645AF27BBCFE500A1E599 /* StatusConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusConstants.swift; sourceTree = "<group>"; };
+		943645B127BBF1F800A1E599 /* GiphyApiServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyApiServiceTest.swift; sourceTree = "<group>"; };
 		94697FA627B8C2F900C7E51D /* GIPHYApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GIPHYApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94697FA927B8C2F900C7E51D /* GIPHYAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIPHYAppApp.swift; sourceTree = "<group>"; };
 		94697FAB27B8C2F900C7E51D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				94697FBA27B8C2FA00C7E51D /* GIPHYAppTests.swift */,
+				943645B127BBF1F800A1E599 /* GiphyApiServiceTest.swift */,
 			);
 			path = GIPHYAppTests;
 			sourceTree = "<group>";
@@ -548,6 +551,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				943645B227BBF1F800A1E599 /* GiphyApiServiceTest.swift in Sources */,
 				94697FBB27B8C2FA00C7E51D /* GIPHYAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
