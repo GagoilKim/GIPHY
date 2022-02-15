@@ -1,0 +1,7 @@
+# GIPHY
+
+## Installation
+```
+pod install
+```
+
