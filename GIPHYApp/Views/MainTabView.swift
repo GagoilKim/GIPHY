@@ -10,11 +10,6 @@ import SwiftUI
 struct MainTabView: View {
     var body: some View {
         TabView {
-            HomeView()
-                .tabItem{
-                    Image(systemName: "house")
-                        .foregroundColor(Color.gray)
-                }
             SearchView()
                 .tabItem{
                     Image(systemName: "magnifyingglass")
@@ -27,6 +22,10 @@ struct MainTabView: View {
                 }
         }
         .accentColor(Color.black)
+        .navigationViewStyle(.stack)
+        .onAppear {
+            UITabBar.appearance().backgroundColor = .white
+        }
     }
 }
 

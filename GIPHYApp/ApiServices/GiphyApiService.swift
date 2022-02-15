@@ -30,15 +30,15 @@ class GiphyApiService : GiphyApiServiceProtocol {
                     let response = try self.decoder.decode(ImageResponse.self, from: data!)
                     completion(.success(response.data))
                 } catch {
-                    #if DEBUG
-                        print(error.localizedDescription)
-                    #endif
+#if DEBUG
+                    print(error.localizedDescription)
+#endif
                     completion(.failure(AppErrors.decodeError))
                 }
             case let .failure(error):
-                #if DEBUG
+#if DEBUG
                 print(error.localizedDescription)
-                #endif
+#endif
                 completion(.failure(AppErrors.networkError))
             }
         }
@@ -56,20 +56,20 @@ class GiphyApiService : GiphyApiServiceProtocol {
                     let response = try self.decoder.decode(ImageResponse.self, from: data!)
                     completion(.success(response.data))
                 } catch {
-                    #if DEBUG
-                        print(error.localizedDescription)
-                    #endif
+#if DEBUG
+                    print(error.localizedDescription)
+#endif
                     completion(.failure(AppErrors.decodeError))
                 }
             case let .failure(error):
-                #if DEBUG
+#if DEBUG
                 print(error.localizedDescription)
-                #endif
+#endif
                 completion(.failure(AppErrors.networkError))
             }
         }
     }
-
+    
     
     func getTrendingImages(completion: @escaping (Result<[DataObject], Error>) -> Void){
         let path = "?api_key=\(KeyConstants.Giphy.APIKey)"
@@ -83,15 +83,15 @@ class GiphyApiService : GiphyApiServiceProtocol {
                     let response = try self.decoder.decode(ImageResponse.self, from: data!)
                     completion(.success(response.data))
                 } catch {
-                    #if DEBUG
-                        print(error.localizedDescription)
-                    #endif
+#if DEBUG
+                    print(error.localizedDescription)
+#endif
                     completion(.failure(AppErrors.decodeError))
                 }
             case let .failure(error):
-                #if DEBUG
+#if DEBUG
                 print(error.localizedDescription)
-                #endif
+#endif
                 completion(.failure(AppErrors.networkError))
             }
         }
@@ -109,19 +109,19 @@ class GiphyApiService : GiphyApiServiceProtocol {
                     let response = try self.decoder.decode(TrendSearchResponse.self, from: data!)
                     completion(.success(response.data))
                 } catch {
-                    #if DEBUG
-                        print(error.localizedDescription)
-                    #endif
+#if DEBUG
+                    print(error.localizedDescription)
+#endif
                     completion(.failure(AppErrors.decodeError))
                 }
             case let .failure(error):
-                #if DEBUG
+#if DEBUG
                 print(error.localizedDescription)
-                #endif
+#endif
                 completion(.failure(AppErrors.networkError))
             }
         }
     }
-
-
+    
+    
 }

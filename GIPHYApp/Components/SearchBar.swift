@@ -7,50 +7,9 @@
 
 import SwiftUI
 
-enum SearchType {
-    case GIFs
-    case Stickers
-    
-    var gifsTextColor : Color {
-        switch self {
-        case .GIFs:
-            return Color.white
-        case .Stickers:
-            return Color.black
-        }
-    }
-    
-    var gifsBackColor : Color {
-        switch self {
-        case .GIFs:
-            return Color.black
-        case .Stickers:
-            return Color.white
-        }
-    }
-    
-    var stickerTextColor : Color {
-        switch self {
-        case .GIFs:
-            return Color.black
-        case .Stickers:
-            return Color.white
-        }
-    }
-    
-    var stickerBackColor : Color {
-        switch self {
-        case .GIFs:
-            return Color.white
-        case .Stickers:
-            return Color.black
-        }
-    }
-}
-
 struct SearchBar: View {
     @State var keyword : String = ""
-     @Binding var searchType : SearchType
+    @Binding var searchType : SearchType
     
     var body: some View {
         VStack{

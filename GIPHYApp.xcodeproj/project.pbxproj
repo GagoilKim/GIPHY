@@ -19,6 +19,9 @@
 		943645A227BA7B4400A1E599 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943645A127BA7B4400A1E599 /* SearchBar.swift */; };
 		943645A427BA85B600A1E599 /* TrendSearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943645A327BA85B600A1E599 /* TrendSearchResponse.swift */; };
 		943645A827BA8A5100A1E599 /* TrendSearchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943645A727BA8A5100A1E599 /* TrendSearchRow.swift */; };
+		943645AC27BBBAE100A1E599 /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943645AB27BBBAE100A1E599 /* URLImage.swift */; };
+		943645AE27BBCDD500A1E599 /* RecentSearchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943645AD27BBCDD500A1E599 /* RecentSearchRow.swift */; };
+		943645B027BBCFE500A1E599 /* StatusConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943645AF27BBCFE500A1E599 /* StatusConstants.swift */; };
 		94697FAA27B8C2F900C7E51D /* GIPHYAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94697FA927B8C2F900C7E51D /* GIPHYAppApp.swift */; };
 		94697FAC27B8C2F900C7E51D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94697FAB27B8C2F900C7E51D /* ContentView.swift */; };
 		94697FAE27B8C2FA00C7E51D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94697FAD27B8C2FA00C7E51D /* Assets.xcassets */; };
@@ -28,7 +31,6 @@
 		94697FC727B8C2FA00C7E51D /* GIPHYAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94697FC627B8C2FA00C7E51D /* GIPHYAppUITestsLaunchTests.swift */; };
 		94697FD527B8C39800C7E51D /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94697FD427B8C39800C7E51D /* MainTabView.swift */; };
 		94697FD727B8C3C700C7E51D /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94697FD627B8C3C700C7E51D /* SearchView.swift */; };
-		94697FD927B8C3E100C7E51D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94697FD827B8C3E100C7E51D /* HomeView.swift */; };
 		94697FDB27B8C3ED00C7E51D /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94697FDA27B8C3ED00C7E51D /* MyPageView.swift */; };
 		94697FDD27B8C98A00C7E51D /* GiphyApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94697FDC27B8C98A00C7E51D /* GiphyApiService.swift */; };
 		94B0755C27B9D9B500F33BBE /* FullImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B0755B27B9D9B500F33BBE /* FullImageView.swift */; };
@@ -73,6 +75,9 @@
 		943645A127BA7B4400A1E599 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		943645A327BA85B600A1E599 /* TrendSearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendSearchResponse.swift; sourceTree = "<group>"; };
 		943645A727BA8A5100A1E599 /* TrendSearchRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendSearchRow.swift; sourceTree = "<group>"; };
+		943645AB27BBBAE100A1E599 /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
+		943645AD27BBCDD500A1E599 /* RecentSearchRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchRow.swift; sourceTree = "<group>"; };
+		943645AF27BBCFE500A1E599 /* StatusConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusConstants.swift; sourceTree = "<group>"; };
 		94697FA627B8C2F900C7E51D /* GIPHYApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GIPHYApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94697FA927B8C2F900C7E51D /* GIPHYAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIPHYAppApp.swift; sourceTree = "<group>"; };
 		94697FAB27B8C2F900C7E51D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,7 +90,6 @@
 		94697FC627B8C2FA00C7E51D /* GIPHYAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIPHYAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		94697FD427B8C39800C7E51D /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		94697FD627B8C3C700C7E51D /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		94697FD827B8C3E100C7E51D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		94697FDA27B8C3ED00C7E51D /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		94697FDC27B8C98A00C7E51D /* GiphyApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyApiService.swift; sourceTree = "<group>"; };
 		94B0755B27B9D9B500F33BBE /* FullImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageView.swift; sourceTree = "<group>"; };
@@ -172,6 +176,7 @@
 				9436458C27B8D29B00A1E599 /* URLConstants.swift */,
 				9436459127B8F98400A1E599 /* AppErrors.swift */,
 				94B0755F27BA366500F33BBE /* UserDefaultsConstants.swift */,
+				943645AF27BBCFE500A1E599 /* StatusConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -192,6 +197,8 @@
 				9436459D27B94B0B00A1E599 /* ImageCollection.swift */,
 				943645A127BA7B4400A1E599 /* SearchBar.swift */,
 				943645A727BA8A5100A1E599 /* TrendSearchRow.swift */,
+				943645AB27BBBAE100A1E599 /* URLImage.swift */,
+				943645AD27BBCDD500A1E599 /* RecentSearchRow.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -266,7 +273,6 @@
 			children = (
 				94697FD427B8C39800C7E51D /* MainTabView.swift */,
 				94697FD627B8C3C700C7E51D /* SearchView.swift */,
-				94697FD827B8C3E100C7E51D /* HomeView.swift */,
 				94697FDA27B8C3ED00C7E51D /* MyPageView.swift */,
 				94B0755B27B9D9B500F33BBE /* FullImageView.swift */,
 				9436459F27BA793D00A1E599 /* SearchResultView.swift */,
@@ -519,6 +525,7 @@
 				94B0755C27B9D9B500F33BBE /* FullImageView.swift in Sources */,
 				9436459027B8D47000A1E599 /* String+Extension.swift in Sources */,
 				9436458D27B8D29B00A1E599 /* URLConstants.swift in Sources */,
+				943645B027BBCFE500A1E599 /* StatusConstants.swift in Sources */,
 				943645A027BA793D00A1E599 /* SearchResultView.swift in Sources */,
 				943645A427BA85B600A1E599 /* TrendSearchResponse.swift in Sources */,
 				94697FDD27B8C98A00C7E51D /* GiphyApiService.swift in Sources */,
@@ -527,12 +534,13 @@
 				94697FD527B8C39800C7E51D /* MainTabView.swift in Sources */,
 				94B0756027BA366500F33BBE /* UserDefaultsConstants.swift in Sources */,
 				9436459527B9177100A1E599 /* GifImage.swift in Sources */,
-				94697FD927B8C3E100C7E51D /* HomeView.swift in Sources */,
 				943645A227BA7B4400A1E599 /* SearchBar.swift in Sources */,
 				94697FAA27B8C2F900C7E51D /* GIPHYAppApp.swift in Sources */,
+				943645AE27BBCDD500A1E599 /* RecentSearchRow.swift in Sources */,
 				9436458827B8CEB700A1E599 /* ImageResponse.swift in Sources */,
 				943645A827BA8A5100A1E599 /* TrendSearchRow.swift in Sources */,
 				94697FDB27B8C3ED00C7E51D /* MyPageView.swift in Sources */,
+				943645AC27BBBAE100A1E599 /* URLImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

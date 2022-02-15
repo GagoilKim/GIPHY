@@ -13,38 +13,33 @@ struct ImageCollection: View {
     @Binding var selectedIndex : Int
     
     var body: some View {
-//        ScrollView {
-            HStack(alignment: .top){
-                VStack{
-                    ForEach(imageAddressList.indices, id: \.self) { index in
-                        if index % 2 == 0 {
-                            GifImage(urlAddress: imageAddressList[index])
-                                .scaledToFit()
-                                .frame(width: UIScreen.main.bounds.width / 2)
-                                .onTapGesture{
-                                    imageSelectStatus = .selected
-                                    selectedIndex = index
-                                }
-                        }
-                    }
-                }
-                Spacer()
-                VStack{
-                    ForEach(imageAddressList.indices, id: \.self) { index in
-                        if index % 2 == 1 {
-                            GifImage(urlAddress: imageAddressList[index])
-                                .scaledToFit()
-                                .frame(width: UIScreen.main.bounds.width / 2)
-
-                                .onTapGesture{
-                                    imageSelectStatus = .selected
-                                    selectedIndex = index
-                                }
-                        }
+        HStack(alignment: .top){
+            VStack{
+                ForEach(imageAddressList.indices, id: \.self) { index in
+                    if index % 2 == 0 {
+                        URLImage(urlAddress: imageAddressList[index])
+                            .frame(width: UIScreen.main.bounds.width / 2)
+                            .onTapGesture {
+                                imageSelectStatus = .selected
+                                selectedIndex = index
+                            }
                     }
                 }
             }
-//        }
+            Spacer()
+            VStack{
+                ForEach(imageAddressList.indices, id: \.self) { index in
+                    if index % 2 == 1 {
+                        URLImage(urlAddress: imageAddressList[index])
+                            .frame(width: UIScreen.main.bounds.width / 2)
+                            .onTapGesture{
+                                imageSelectStatus = .selected
+                                selectedIndex = index
+                            }
+                    }
+                }
+            }
+        }
     }
 }
 

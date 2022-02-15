@@ -9,4 +9,5 @@ import Foundation
 
 enum UserDefaultsConstants {
     static var favoriteImageKey = "favoriteImageData"
+    static var searchedWordKey = "searchedWordData"
 }

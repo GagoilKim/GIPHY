@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct TrendSearchRow: View {
-    let trendKeyword: String
     @Binding var searchType : SearchType
+
+    let trendKeyword: String
+    
     var body: some View {
         NavigationLink(destination: SearchResultView(keyword: trendKeyword, searchType: $searchType)){
             HStack{
@@ -27,6 +29,6 @@ struct TrendSearchRow: View {
 
 struct TrendSearchRow_Previews: PreviewProvider {
     static var previews: some View {
-        TrendSearchRow(trendKeyword: "", searchType: .constant(.GIFs))
+        TrendSearchRow( searchType: .constant(.GIFs), trendKeyword: "")
     }
 }

@@ -46,6 +46,7 @@ struct SearchResultView: View {
             case .Stickers:
                 viewModel.searchStickers(keyword: keyword)
             }
+            viewModel.getRecentSearchedWords(keyword: keyword)
         })
         .navigationTitle(Text(keyword))
     }
@@ -64,6 +65,7 @@ extension SearchResultView {
         @Published var imageSelectStatus : ImageSelectStatus = .notSelected
         @Published var selectedIndex : Int = 0
         
+        let userDefaults = UserDefaults.standard
         let giphyApiService : GiphyApiServiceProtocol
         init(service: GiphyApiServiceProtocol = GiphyApiService()){
             giphyApiService = service
@@ -94,6 +96,16 @@ extension SearchResultView {
                     print(error.localizedDescription)
 #endif
                 }
+            }
+        }
+        
+        func getRecentSearchedWords(keyword: String) {
+            if let data =  userDefaults.value(forKey: UserDefaultsConstants.searchedWordKey) as? [String] {
+                var searchedWords = data
+                searchedWords.append(keyword)
+                userDefaults.set(searchedWords, forKey: UserDefaultsConstants.searchedWordKey)
+            } else {
+                userDefaults.set([keyword], forKey: UserDefaultsConstants.searchedWordKey)
             }
         }
     }

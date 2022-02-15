@@ -10,8 +10,9 @@ import SwiftUI
 struct SearchView: View {
     @State private var isFullScreen : Bool = false
     @State var keyword : String = ""
-    @StateObject private var viewModel = ViewModel()
     @State var searchType : SearchType = .GIFs
+    
+    @StateObject private var viewModel = ViewModel()
     
     var body: some View {
         NavigationView{
@@ -24,14 +25,15 @@ struct SearchView: View {
                                 Text("Trending Searches")
                                     .bold()
                                 ForEach(0..<(viewModel.trendSearchList.count/3), id: \.self) { value in
-                                    TrendSearchRow(trendKeyword: viewModel.trendSearchList[value],
-                                                   searchType: $searchType)
+                                    TrendSearchRow(searchType: $searchType,
+                                                   trendKeyword: viewModel.trendSearchList[value])
                                 }
                             }
                             Spacer()
                         }
                     }
                     .padding(.leading, 20)
+                    RecentSearchRow(searchType: $searchType)
                     HStack{
                         Text("Most Popular Now")
                             .bold()
@@ -70,6 +72,7 @@ struct SearchView: View {
                 viewModel.getTrendingSearch()
             })
         }
+        .edgesIgnoringSafeArea(.bottom)
     }
     
     private func resetStatus() {
@@ -84,10 +87,6 @@ struct SearchView_Previews: PreviewProvider {
     }
 }
 
-enum ImageSelectStatus: Equatable {
-    case selected
-    case notSelected
-}
 
 extension SearchView {
     final class ViewModel: ObservableObject {
@@ -97,6 +96,7 @@ extension SearchView {
         @Published var trendSearchList : [String] = []
         
         let giphyApiService : GiphyApiServiceProtocol
+        
         init(service: GiphyApiServiceProtocol = GiphyApiService()){
             giphyApiService = service
         }

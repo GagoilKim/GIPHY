@@ -27,12 +27,10 @@ struct DataObject : Decodable, Identifiable {
 
 struct ImageObject : Decodable {
     var original : ImageData
-//    var originalStill : ImageData
     var downSized : ImageData
     
     private enum CodingKeys: String, CodingKey {
         case original
-//        case originalStill = "original_still"
         case downSized  = "downsized"
     }
 }
