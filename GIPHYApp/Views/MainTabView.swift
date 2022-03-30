@@ -11,6 +11,7 @@ struct MainTabView: View {
     var body: some View {
         TabView {
             SearchView()
+                .background(.black)
                 .tabItem{
                     Image(systemName: "magnifyingglass")
                         .foregroundColor(Color.gray)
@@ -21,11 +22,8 @@ struct MainTabView: View {
                         .foregroundColor(Color.gray)
                 }
         }
-        .accentColor(Color.black)
+        .accentColor(.purple)
         .navigationViewStyle(.stack)
-        .onAppear {
-            UITabBar.appearance().backgroundColor = .white
-        }
     }
 }
 
