@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct FullImageView: View {
     @State  var imageAddress : String
@@ -14,9 +15,14 @@ struct FullImageView: View {
     
     var body: some View {
         VStack{
-            GifImage(urlAddress: imageAddress)
-                .scaledToFit()
-                .frame(width: UIScreen.main.bounds.width)
+            if let url = URL(string: imageAddress){
+                KFAnimatedImage(url)
+                    .scaledToFit()
+                    .frame(width: UIScreen.main.bounds.width)
+            } else {
+                EmptyView()
+            }
+            
             Button(action:  {
                 isFavorite.toggle()
                 viewModel.clickFavorite(imageAddress: imageAddress)
@@ -29,6 +35,7 @@ struct FullImageView: View {
             }
             Spacer()
         }
+        .background(.black)
         .onAppear(perform: {
             isFavorite = viewModel.checkFavoriteData(imageAddress: imageAddress)
         })

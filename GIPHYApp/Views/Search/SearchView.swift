@@ -90,7 +90,8 @@ struct SearchView: View {
                 resetStatus()
                 viewModel.getTrendingImages()
                 //                viewModel.getTrendingSearch()
-                viewModel.getTrendingSearch2()
+//                viewModel.getTrendingSearch2()
+                viewModel.getTrendingSearch()
             })
         }
         .edgesIgnoringSafeArea(.bottom)
@@ -126,22 +127,22 @@ extension SearchView {
         }
         
         
-        func getTrendingSearch2() {
-            giphyApiService.getTrendingSearch2()
-                .sink(receiveCompletion: { result in
-                    switch result {
-                    case let .failure(error):
-                        print(error)
-                    case .finished:
-                        break
-                    }
-                }, receiveValue: { value in
-                    print("printed here")
-                    self.trendSearchList = value
-                    print(self.trendSearchList)
-                })
-                .store(in: &cancellable)
-        }
+//        func getTrendingSearch2() {
+//            giphyApiService.getTrendingSearch2()
+//                .sink(receiveCompletion: { result in
+//                    switch result {
+//                    case let .failure(error):
+//                        print(error)
+//                    case .finished:
+//                        break
+//                    }
+//                }, receiveValue: { value in
+//                    print("printed here")
+//                    self.trendSearchList = value
+//                    print(self.trendSearchList)
+//                })
+//                .store(in: &cancellable)
+//        }
         
         func getTrendingImages() {
             giphyApiService.getTrendingImages { [weak self] result in

@@ -17,10 +17,9 @@ struct ImageCollectionView: View {
         HStack(alignment: .top){
             VStack{
                 ForEach(imageAddressList.indices, id: \.self) { index in
-                    if index % 2 == 1 {
+                    if index % 2 == 0 {
                         if let imageAddress = imageAddressList[index] {
-                            KFImage(URL(string: imageAddress))
-                                .resizable()
+                            KFAnimatedImage(URL(string: imageAddress))
                                 .scaledToFit()
                                 .frame(width: UIScreen.main.bounds.width / 2)
                                 .onTapGesture {
@@ -38,10 +37,9 @@ struct ImageCollectionView: View {
             Spacer()
             VStack{
                 ForEach(imageAddressList.indices, id: \.self) { index in
-                    if index % 2 == 0 {
+                    if index % 2 == 1 {
                         if let imageAddress = imageAddressList[index] {
-                            KFImage(URL(string: imageAddress))
-                                .resizable()
+                            KFAnimatedImage(URL(string: imageAddress))
                                 .scaledToFit()
                                 .frame(width: UIScreen.main.bounds.width / 2)
                                 .onTapGesture {
