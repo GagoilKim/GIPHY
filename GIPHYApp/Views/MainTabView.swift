@@ -14,12 +14,12 @@ struct MainTabView: View {
                 .background(.black)
                 .tabItem{
                     Image(systemName: "magnifyingglass")
-                        .foregroundColor(Color.gray)
+                        .foregroundColor(Color.white)
                 }
             MyPageView()
                 .tabItem{
                     Image(systemName: "person")
-                        .foregroundColor(Color.gray)
+                        .foregroundColor(Color.white)
                 }
         }
         .accentColor(.purple)

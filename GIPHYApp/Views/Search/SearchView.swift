@@ -32,6 +32,7 @@ struct SearchView: View {
                                         .frame(height: 20, alignment: .center)
                                 Text("Trending Searches")
                                     .bold()
+                                    .font(.system(size: 20))
                                     .foregroundColor(.white)
                                 }
                                 ForEach(0..<(viewModel.trendSearchList.count/3), id: \.self) { value in
@@ -52,6 +53,7 @@ struct SearchView: View {
                             .frame(height: 20, alignment: .center)
                         Text("Trending")
                             .bold()
+                            .font(.system(size: 20))
                             .foregroundColor(.white)
                         Spacer()
                     }

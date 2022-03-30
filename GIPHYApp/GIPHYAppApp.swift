@@ -12,7 +12,11 @@ struct GIPHYAppApp: App {
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
-        UITabBar.appearance().barTintColor = UIColor.black
+        UITabBar.appearance().shadowImage = UIImage()
+        UITabBar.appearance().backgroundImage = UIImage()
+        UITabBar.appearance().isTranslucent = true
+        UITabBar.appearance().backgroundColor = .black
+        UITabBar.appearance().barTintColor = .white
     }
     var body: some Scene {
         WindowGroup {
@@ -20,3 +24,4 @@ struct GIPHYAppApp: App {
         }
     }
 }
+

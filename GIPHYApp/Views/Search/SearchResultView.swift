@@ -39,6 +39,7 @@ struct SearchResultView: View {
                 }
             }
         }
+        .background(.black)
         .onAppear(perform: {
             switch searchType {
             case .GIFs:
