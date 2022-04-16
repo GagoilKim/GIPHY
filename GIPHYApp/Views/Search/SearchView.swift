@@ -10,15 +10,12 @@ import Combine
 
 struct SearchView: View {
     @State private var isFullScreen : Bool = false
-    @State var keyword : String = ""
-    @State var searchType : SearchType = .GIFs
-    
-    @StateObject private var viewModel = ViewModel()
+    @StateObject var viewModel = ViewModel()
     
     var body: some View {
         NavigationView{
             VStack(alignment: .leading){
-                SearchBar( searchType: $searchType)
+                SearchBar(keyword: $viewModel.keyword, searchType: $viewModel.searchType)
                     .padding(.bottom, 10)
                 ScrollView{
                     HStack{
@@ -30,13 +27,13 @@ struct SearchView: View {
                                         .scaledToFit()
                                         .foregroundColor(.pink)
                                         .frame(height: 20, alignment: .center)
-                                Text("Trending Searches")
-                                    .bold()
-                                    .font(.system(size: 20))
-                                    .foregroundColor(.white)
+                                    Text("Trending Searches")
+                                        .bold()
+                                        .font(.system(size: 20))
+                                        .foregroundColor(.white)
                                 }
                                 ForEach(0..<(viewModel.trendSearchList.count/3), id: \.self) { value in
-                                    TrendSearchRow(searchType: $searchType,
+                                    TrendSearchRow(searchType: $viewModel.searchType,
                                                    trendKeyword: viewModel.trendSearchList[value])
                                 }
                             }
@@ -44,7 +41,7 @@ struct SearchView: View {
                         }
                     }
                     .padding(.leading, 20)
-//                    RecentSearchRow(searchType: $searchType)
+                    //                    RecentSearchRow(searchType: $searchType)
                     HStack{
                         Image(systemName: "arrow.turn.right.up")
                             .resizable()
@@ -89,8 +86,6 @@ struct SearchView: View {
             .onAppear(perform: {
                 resetStatus()
                 viewModel.getTrendingImages()
-                //                viewModel.getTrendingSearch()
-//                viewModel.getTrendingSearch2()
                 viewModel.getTrendingSearch()
             })
         }
@@ -117,32 +112,31 @@ extension SearchView {
         @Published var selectedIndex : Int = 0
         @Published var trendSearchList : [String] = []
         @Published var isTrendSearch : Bool = false
-        
+        @Published var keyword : String = ""
+        @Published var searchType : SearchType = .GIFs
+
         var cancellable = Set<AnyCancellable>()
         
         let giphyApiService : GiphyApiServiceProtocol
         
         init(service: GiphyApiServiceProtocol = GiphyApiService()){
             giphyApiService = service
+            bind()
         }
         
-        
-//        func getTrendingSearch2() {
-//            giphyApiService.getTrendingSearch2()
-//                .sink(receiveCompletion: { result in
-//                    switch result {
-//                    case let .failure(error):
-//                        print(error)
-//                    case .finished:
-//                        break
-//                    }
-//                }, receiveValue: { value in
-//                    print("printed here")
-//                    self.trendSearchList = value
-//                    print(self.trendSearchList)
-//                })
-//                .store(in: &cancellable)
-//        }
+        func bind() {
+            $keyword.debounce(for: 2, scheduler: DispatchQueue.main)
+                .sink(receiveValue: { value in
+                    print(value)
+                })
+                .store(in: &cancellable)
+            
+            $searchType.debounce(for: 1, scheduler: DispatchQueue.main)
+                .sink(receiveValue: { value in
+                    print(value)
+                })
+                .store(in: &cancellable)
+        }
         
         func getTrendingImages() {
             giphyApiService.getTrendingImages { [weak self] result in

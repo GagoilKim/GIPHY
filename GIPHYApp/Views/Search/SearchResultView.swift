@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct SearchResultView: View {
-    let keyword: String
+    @State var keyword: String
     @Binding var searchType : SearchType
     
     @State private var isFullScreen : Bool = false
     @StateObject private var viewModel = ViewModel()
     var body: some View {
         VStack{
-            SearchBar(searchType: $searchType)
+            SearchBar(keyword: $keyword, searchType: $searchType)
             ScrollView{
                 ImageCollectionView(imageAddressList: $viewModel.imageAddressList,
                                 imageSelectStatus: $viewModel.imageSelectStatus,
