@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchResultView: View {
     @State var keyword: String
-    @Binding var searchType : SearchType
+    @State var searchType : SearchType
     
     @State private var isFullScreen : Bool = false
     @StateObject private var viewModel = ViewModel()
@@ -55,7 +55,7 @@ struct SearchResultView: View {
 
 struct SearchResultView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchResultView(keyword: "Something", searchType: .constant(.Stickers))
+        SearchResultView(keyword: "Something", searchType: .Stickers)
     }
 }
 
@@ -79,9 +79,7 @@ extension SearchResultView {
                 case let .success(data):
                     self.imageAddressList = data.map{ $0.imagesList.downSized.url }
                 case let .failure(error):
-#if DEBUG
-                    print(error.localizedDescription)
-#endif
+                    debugPrint(error.localizedDescription)
                 }
             }
         }
@@ -93,9 +91,7 @@ extension SearchResultView {
                 case let .success(data):
                     self.imageAddressList = data.map{ $0.imagesList.downSized.url }
                 case let .failure(error):
-#if DEBUG
-                    print(error.localizedDescription)
-#endif
+                    debugPrint(error.localizedDescription)
                 }
             }
         }

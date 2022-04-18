@@ -13,7 +13,7 @@ struct TrendSearchRow: View {
     let trendKeyword: String
     
     var body: some View {
-        NavigationLink(destination: SearchResultView(keyword: trendKeyword, searchType: $searchType)){
+        NavigationLink(destination: SearchResultView(keyword: trendKeyword, searchType: searchType)){
             HStack{
                 Image(systemName: "number")
                     .resizable()

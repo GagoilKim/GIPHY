@@ -23,7 +23,7 @@ struct RecentSearchRow: View {
             ScrollView(.horizontal){
                 HStack{
                     ForEach(viewModel.recentSearchWords.indices, id: \.self) { index in
-                        NavigationLink(destination: SearchResultView(keyword: viewModel.recentSearchWords[index], searchType: $searchType)){
+                        NavigationLink(destination: SearchResultView(keyword: viewModel.recentSearchWords[index], searchType: searchType)){
                             Text(viewModel.recentSearchWords[index])
                                 .foregroundColor(.white)
                                 .background(

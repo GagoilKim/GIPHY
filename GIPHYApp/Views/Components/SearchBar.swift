@@ -21,6 +21,7 @@ struct SearchBar: View {
                         .frame(width: 25, height: 25)
                         .foregroundColor(Color.white)
                         .background(Rectangle().foregroundColor(.purple).frame(width: 40, height: 40))
+//                        .padding(.leading, 5)
 //                }
               
                 Spacer()
@@ -28,7 +29,7 @@ struct SearchBar: View {
                     .foregroundColor(.black)
                     .padding(.leading, 10)
             }
-            .padding(.horizontal, 5)
+            .padding(.leading, 5)
             .background(Rectangle()
                         .frame(height: 40)
                             .foregroundColor(.white)

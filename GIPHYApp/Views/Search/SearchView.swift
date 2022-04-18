@@ -10,6 +10,7 @@ import Combine
 
 struct SearchView: View {
     @State private var isFullScreen : Bool = false
+    @State private var isSearchResult : Bool = false
     @StateObject var viewModel = ViewModel()
     
     var body: some View {
@@ -17,6 +18,16 @@ struct SearchView: View {
             VStack(alignment: .leading){
                 SearchBar(keyword: $viewModel.keyword, searchType: $viewModel.searchType)
                     .padding(.bottom, 10)
+                    .onAppear(perform: {
+                        viewModel.$keyword
+                            .dropFirst()
+                            .debounce(for: 2, scheduler: DispatchQueue.main)
+                            .sink(receiveValue: { value in
+                                print(value)
+                                self.isSearchResult = true
+                            })
+                            .store(in: &viewModel.cancellable)
+                    })
                 ScrollView{
                     HStack{
                         if !viewModel.trendSearchList.isEmpty {
@@ -77,6 +88,9 @@ struct SearchView: View {
                         EmptyView()
                     }
                 }
+                NavigationLink(destination: SearchResultView(keyword: viewModel.keyword, searchType: viewModel.searchType), isActive: $isSearchResult) {
+                    EmptyView()
+                }
             }
             .background(.black)
             .navigationBarBackButtonHidden(true)
@@ -114,7 +128,7 @@ extension SearchView {
         @Published var isTrendSearch : Bool = false
         @Published var keyword : String = ""
         @Published var searchType : SearchType = .GIFs
-
+        
         var cancellable = Set<AnyCancellable>()
         
         let giphyApiService : GiphyApiServiceProtocol
@@ -125,12 +139,6 @@ extension SearchView {
         }
         
         func bind() {
-            $keyword.debounce(for: 2, scheduler: DispatchQueue.main)
-                .sink(receiveValue: { value in
-                    print(value)
-                })
-                .store(in: &cancellable)
-            
             $searchType.debounce(for: 1, scheduler: DispatchQueue.main)
                 .sink(receiveValue: { value in
                     print(value)
