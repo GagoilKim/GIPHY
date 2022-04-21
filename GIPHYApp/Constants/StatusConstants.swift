@@ -29,6 +29,15 @@ enum SearchType {
             return Color.mint
         }
     }
+    
+    var buttonColor : Color {
+        switch self {
+        case .GIFs:
+            return Color.purple
+        case .Stickers:
+            return Color.mint
+        }
+    }
 }
 
 

@@ -153,9 +153,7 @@ extension SearchView {
                 case let .success(data):
                     self.imageAddressList = data.map{ $0.imagesList.downSized.url }
                 case let .failure(error):
-#if DEBUG
-                    print(error.localizedDescription)
-#endif
+                    debugPrint(error.localizedDescription)
                 }
             }
         }
@@ -168,9 +166,7 @@ extension SearchView {
                     self.trendSearchList = data
                     print(self.trendSearchList)
                 case let .failure(error):
-#if DEBUG
-                    print(error.localizedDescription)
-#endif
+                    debugPrint(error.localizedDescription)
                 }
             }
         }

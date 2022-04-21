@@ -14,16 +14,15 @@ struct SearchBar: View {
     var body: some View {
         VStack{
             HStack{
-//                NavigationLink(destination: SearchResultView(keyword: keyword, searchType: $searchType)) {
-                    Image(systemName: "magnifyingglass")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 25, height: 25)
-                        .foregroundColor(Color.white)
-                        .background(Rectangle().foregroundColor(.purple).frame(width: 40, height: 40))
-//                        .padding(.leading, 5)
-//                }
-              
+                Image(systemName: "magnifyingglass")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 25, height: 25)
+                    .foregroundColor(Color.white)
+                    .background(
+                        Rectangle().foregroundColor(searchType.buttonColor)
+                            .frame(width: 40, height: 40))
+                    .padding(.leading, 5)
                 Spacer()
                 TextField("Search GIPHY", text: $keyword)
                     .foregroundColor(.black)
@@ -31,7 +30,7 @@ struct SearchBar: View {
             }
             .padding(.leading, 5)
             .background(Rectangle()
-                        .frame(height: 40)
+                            .frame(height: 40)
                             .foregroundColor(.white)
             )
             .padding(.bottom, 20)
